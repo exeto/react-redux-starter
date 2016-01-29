@@ -1,0 +1,61 @@
+{
+  "name": "react-redux-starter",
+  "version": "0.1.0",
+  "description": "React Redux Starter",
+  "license": "MIT",
+  "repository": "exeto/react-redux-starter",
+  "engines": {
+    "node": ">=4.2.0",
+    "npm": "^3.0.0"
+  },
+  "author": {
+    "name": "Timofey Dergachev",
+    "email": "t@exeto.me",
+    "url": "exeto.me"
+  },
+  "scripts": {
+    "test": "eslint --ext jsx,js .",
+    "start": "node devServer.js",
+    "build": "rimraf public && NODE_ENV=production webpack --progress --config webpack/config.prod.js"
+  },
+  "dependencies": {
+    "classnames": "^2.2.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.1.1",
+    "react-router": "^2.0.0-rc5",
+    "react-router-redux": "^2.1.0",
+    "redux": "^3.1.2",
+    "redux-actions": "^0.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-transform-runtime": "^6.4.3",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-react-hmre": "^1.0.1",
+    "babel-preset-stage-0": "^6.3.13",
+    "connect-history-api-fallback": "^1.1.0",
+    "copy-webpack-plugin": "^1.1.1",
+    "css-loader": "^0.23.1",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^4.0.0",
+    "eslint-plugin-react": "^3.16.1",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.7.2",
+    "lodash.merge": "^4.0.2",
+    "postcss-loader": "^0.8.0",
+    "redux-devtools": "^3.0.2",
+    "redux-devtools-dock-monitor": "^1.0.1",
+    "redux-devtools-log-monitor": "^1.0.2",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.6.4"
+  }
+}

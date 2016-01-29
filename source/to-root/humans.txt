@@ -1,0 +1,10 @@
+/* TEAM */
+  <your role>: <your name>
+  Site: http://domain.com/
+  Twitter: @name
+  From: Minsk, Belarus
+
+/* SITE */
+  Language: Russian
+  Standards: HTML5, CSS3
+  Software: Atom, Modernizr
