@@ -1,9 +1,4 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
-  "rules": {
-    "react/jsx-no-bind": [2, {
-      "allowArrowFunctions": true,
-    }]
-  }
+  "extends": "exeto",
 }
