@@ -1,13 +1,13 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { syncHistory } from 'react-router-redux';
 import { browserHistory } from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
 import { persistState } from 'redux-devtools';
 
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
 const enhancer = compose(
-  applyMiddleware(syncHistory(browserHistory)),
+  applyMiddleware(routerMiddleware(browserHistory)),
   DevTools.instrument(),
   persistState(
     window.location.href.match(
