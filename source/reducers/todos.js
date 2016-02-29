@@ -1,5 +1,7 @@
 import { handleActions } from 'redux-actions';
 
+import * as types from '../constants/todos';
+
 const initialState = [{
   id: 0,
   text: 'Use Redux',
@@ -7,7 +9,7 @@ const initialState = [{
 }];
 
 export default handleActions({
-  ADD_TODO: (state, action) => (
+  [types.ADD_TODO]: (state, action) => (
     [{
       id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
       text: action.payload,
@@ -15,9 +17,9 @@ export default handleActions({
     }, ...state]
   ),
 
-  DELETE_TODO: (state, action) => state.filter(todo => todo.id !== action.payload),
+  [types.DELETE_TODO]: (state, action) => state.filter(todo => todo.id !== action.payload),
 
-  EDIT_TODO: (state, action) => (
+  [types.EDIT_TODO]: (state, action) => (
     state.map(todo => (
       todo.id === action.payload.id
         ? { ...todo, text: action.payload.text }
@@ -25,7 +27,7 @@ export default handleActions({
     ))
   ),
 
-  COMPLETE_TODO: (state, action) => (
+  [types.COMPLETE_TODO]: (state, action) => (
     state.map(todo => (
       todo.id === action.payload
         ? { ...todo, completed: !todo.completed }
@@ -33,7 +35,7 @@ export default handleActions({
     ))
   ),
 
-  COMPLETE_ALL: state => {
+  [types.COMPLETE_ALL]: state => {
     const areAllMarked = state.every(todo => todo.completed);
 
     return state.map(todo => (
@@ -44,7 +46,7 @@ export default handleActions({
     ));
   },
 
-  CLEAR_COMPLETE: state => (
+  [types.CLEAR_COMPLETE]: state => (
     state.filter(todo => todo.completed === false)
   ),
 }, initialState);

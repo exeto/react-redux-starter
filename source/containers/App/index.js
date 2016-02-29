@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as TodoActions from '../../actions';
+import * as TodoActions from '../../actions/todos';
 import Header from '../../components/Header';
 import MainSection from '../../components/MainSection';
 import style from './style.css';
