@@ -1,6 +1,11 @@
 {
   "presets": ["es2015", "stage-0", "react"],
-  "plugins": ["transform-runtime"],
+  "plugins": [
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": false
+    }]
+  ],
   "env": {
     "development": {
       "presets": ["react-hmre"]

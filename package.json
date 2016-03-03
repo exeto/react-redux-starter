@@ -19,6 +19,7 @@
     "build": "rimraf public && NODE_ENV=production webpack --progress --config webpack/config.prod.js"
   },
   "dependencies": {
+    "babel-polyfill": "^6.6.1",
     "classnames": "^2.2.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
