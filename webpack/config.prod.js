@@ -1,10 +1,10 @@
 'use strict';
 
-const merge             = require('lodash.merge');
-const webpack           = require('webpack');
+const merge = require('lodash.merge');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const baseConfig        = require('./config.base');
+const baseConfig = require('./config.base');
 
 module.exports = merge(baseConfig, {
   output: {
