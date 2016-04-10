@@ -37,7 +37,7 @@ const FilterLink = ({ filter, selectedFilter, onShow }) => {
 };
 
 const ClearButton = ({ completedCount, onClearCompleted }) => {
-  if (completedCount === 0) { return <noscript />; }
+  if (completedCount === 0) { return null; }
 
   return (
     <button className={style.clearCompleted} onClick={onClearCompleted} >
