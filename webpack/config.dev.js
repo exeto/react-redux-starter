@@ -6,9 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./config.base');
 
 module.exports = merge(baseConfig, {
-  entry: baseConfig.entry.concat([
-    'webpack-hot-middleware/client',
-  ]),
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+  ].concat(baseConfig.entry),
 
   output: {
     filename: 'static/bundle.js',
