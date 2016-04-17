@@ -14,7 +14,9 @@
     "url": "exeto.me"
   },
   "scripts": {
-    "test": "eslint --ext jsx,js .",
+    "test": "npm run lint",
+    "lint": "eslint --ext jsx,js .",
+    "lint:fix": "npm run lint -- --fix",
     "start": "node devServer.js",
     "build": "rimraf public && NODE_ENV=production webpack --progress --config webpack/config.prod.js"
   },
@@ -43,9 +45,11 @@
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
-    "eslint": "^2.5.3",
-    "eslint-config-exeto": "~6.2.0",
-    "eslint-plugin-react": "^4.2.3",
+    "eslint": "^2.8.0",
+    "eslint-config-exeto": "^7.0.0",
+    "eslint-plugin-import": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "eslint-plugin-react": "^4.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.7.2",
     "lodash.merge": "^4.0.2",
