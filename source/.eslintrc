@@ -1,4 +1,4 @@
 {
   "parser": "babel-eslint",
-  "extends": "exeto",
+  "extends": "exeto"
 }
