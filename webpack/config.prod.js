@@ -15,7 +15,7 @@ module.exports = merge(baseConfig, {
     loaders: baseConfig.module.loaders.concat([
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css?modules!postcss'),
+        loader: ExtractTextPlugin.extract('css?modules&camelCase!postcss'),
       },
     ]),
   },

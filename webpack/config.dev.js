@@ -20,7 +20,7 @@ module.exports = merge(baseConfig, {
         test: /\.css$/,
         loaders: [
           'style',
-          'css?modules&sourceMap&localIdentName=[name]---[local]---[hash:base64:5]',
+          'css?modules&camelCase&sourceMap&localIdentName=[name]---[local]---[hash:base64:5]',
           'postcss',
         ],
       },
