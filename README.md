@@ -6,6 +6,7 @@
 
 ## Features
 
+- Universal rendering
 - [Transform HMR](https://github.com/gaearon/babel-plugin-react-transform)
 - [Redux DevTools](https://github.com/gaearon/redux-devtools)
 - [PostCSS](https://github.com/postcss/postcss) ([Autoprefixer](https://github.com/postcss/autoprefixer))
@@ -26,6 +27,7 @@ $ npm start
 
 # Production
 $ npm run build
+$ npm start --production
 ```
 
 ## License

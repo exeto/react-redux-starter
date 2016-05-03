@@ -3,8 +3,7 @@
 const merge = require('lodash.merge');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const baseConfig = require('./config.base');
+const baseConfig = require('./client.base');
 
 module.exports = merge(baseConfig, {
   output: {
@@ -24,15 +23,6 @@ module.exports = merge(baseConfig, {
     new ExtractTextPlugin('static/[contenthash].css', { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-
-    new HtmlWebpackPlugin({
-      template: 'template.html',
-      inject: false,
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-      },
-    }),
 
     new webpack.optimize.UglifyJsPlugin({
       compress: {

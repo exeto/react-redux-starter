@@ -1,3 +1,6 @@
 {
-  "extends": "exeto/node"
+  "extends": "exeto/node",
+  "rules": {
+    "import/no-unresolved": [2, { "ignore": ["tmp/assets$"] }]
+  }
 }

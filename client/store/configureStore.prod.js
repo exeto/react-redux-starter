@@ -6,6 +6,6 @@ import rootReducer from '../reducers';
 
 const enhancer = applyMiddleware(routerMiddleware(browserHistory));
 
-export default function configure(initialState) {
+export default function configureStore(initialState) {
   return createStore(rootReducer, initialState, enhancer);
 }

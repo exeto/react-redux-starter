@@ -2,8 +2,7 @@
 
 const merge = require('lodash.merge');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const baseConfig = require('./config.base');
+const baseConfig = require('./client.base');
 
 module.exports = merge(baseConfig, {
   entry: [
@@ -32,6 +31,5 @@ module.exports = merge(baseConfig, {
   plugins: baseConfig.plugins.concat([
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({ template: 'template.html', hash: true, inject: false }),
   ]),
 });

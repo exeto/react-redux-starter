@@ -1,35 +1,41 @@
 'use strict';
 
-const browserSync = require('browser-sync').create();
-const history = require('connect-history-api-fallback');
+const bs = require('browser-sync').create();
+const express = require('express');
 const webpack = require('webpack');
-const webpackDev = require('webpack-dev-middleware');
-const webpackHot = require('webpack-hot-middleware');
 
-const config = require('./webpack/config.dev');
+const config = require('./webpack/client.dev');
 
+const app = express();
 const compiler = webpack(config);
-
-browserSync.init({
+const bsConfig = {
   open: false,
   notify: false,
+  server: 'public',
+  middleware: [app],
+};
+let launched = false;
 
-  server: {
-    baseDir: '.',
+app.set('views', './client');
+app.set('view engine', 'ejs');
 
-    middleware: [
-      history(),
-      webpackDev(compiler, {
-        noInfo: true,
-        stats: {
-          colors: true,
-        },
-      }),
-      webpackHot(compiler),
-    ],
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath,
+  stats: {
+    colors: true,
   },
+}));
 
-  files: [
-    'source/*.html',
-  ],
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.get('*', (req, res) => {
+  res.render('template', { assets: require('./tmp/assets'), data: {} });
+});
+
+compiler.plugin('done', () => {
+  if (!launched) {
+    bs.init(bsConfig);
+    launched = true;
+  }
 });

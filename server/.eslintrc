@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "extends": "exeto",
+  "rules": {
+    "import/no-unresolved": [2, { "ignore": ["tmp/assets$"] }],
+    "no-console": 0
+  }
+}

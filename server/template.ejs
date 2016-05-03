@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>React Redux Starter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%_ if (assets.main.css) { _%>
+    <link rel="stylesheet" href="<%= assets.main.css %>">
+    <%_ } _%>
+  </head>
+  <body>
+    <div id="root"><%- data.html || '' %></div>
+    <%_ if (data.initialState) { _%>
+    <script>
+      window.INITIAL_STATE = <%- JSON.stringify(data.initialState) %>;
+    </script>
+    <%_ } _%>
+    <script src="<%= assets.main.js %>"></script>
+  </body>
+</html>
