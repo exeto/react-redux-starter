@@ -7,7 +7,7 @@ const baseConfig = require('./client.base');
 
 module.exports = merge(baseConfig, {
   output: {
-    filename: 'static/js/[chunkhash].js',
+    filename: 'static/js/[chunkhash:15].js',
   },
 
   module: {
@@ -20,7 +20,7 @@ module.exports = merge(baseConfig, {
   },
 
   plugins: baseConfig.plugins.concat([
-    new ExtractTextPlugin('static/css/[contenthash].css', { allChunks: true }),
+    new ExtractTextPlugin('static/css/[contenthash:15].css', { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
 
