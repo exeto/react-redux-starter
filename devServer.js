@@ -16,7 +16,7 @@ const bsConfig = {
 };
 let launched = false;
 
-app.set('views', './client');
+app.set('views', './server');
 app.set('view engine', 'ejs');
 
 app.use(require('webpack-dev-middleware')(compiler, {
