@@ -39,8 +39,8 @@ module.exports = {
         loader: 'json',
       },
       {
-        test: /\.css$/,
-        loader: 'css/locals?modules&camelCase&context=client!postcss',
+        test: /\.scss$/,
+        loader: 'css/locals?-minimize&modules&camelCase&context=client!postcss!sass',
       },
     ],
   },

@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 
@@ -14,7 +13,6 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, '../public'),
-    publicPath: '/',
   },
 
   module: {
@@ -30,10 +28,6 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
-
-  postcss: [
-    autoprefixer,
-  ],
 
   plugins: [
     new CopyWebpackPlugin([{ from: 'to-root' }]),

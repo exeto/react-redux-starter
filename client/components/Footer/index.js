@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames/bind';
 
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/filters';
-import style from './style.css';
+import style from './style.scss';
 
 const cx = classnames.bind(style);
 

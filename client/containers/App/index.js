@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as TodoActions from '../../actions/todos';
 import Header from '../../components/Header';
 import MainSection from '../../components/MainSection';
-import style from './style.css';
+import style from './style.scss';
 
 const App = ({ todos, actions, children }) => (
   <div className={style.normal}>

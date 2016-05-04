@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames/bind';
 
 import TodoTextInput from '../TodoTextInput';
-import style from './style.css';
+import style from './style.scss';
 
 const cx = classnames.bind(style);
 
