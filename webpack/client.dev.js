@@ -7,9 +7,11 @@ const baseConfig = require('./client.base');
 const mergeCustomizer = require('./utils/mergeCustomizer');
 
 module.exports = merge({
-  entry: [
-    'webpack-hot-middleware/client?reload=true',
-  ],
+  entry: {
+    main: [
+      'webpack-hot-middleware/client?reload=true',
+    ],
+  },
 
   output: {
     filename: 'static/js/bundle.js',
@@ -47,6 +49,7 @@ module.exports = merge({
   devtool: 'cheap-module-eval-source-map',
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ],

@@ -7,9 +7,19 @@ const AssetsPlugin = require('assets-webpack-plugin');
 module.exports = {
   context: path.join(__dirname, '../client'),
 
-  entry: [
-    './index.js',
-  ],
+  entry: {
+    main: './index.js',
+    vendor: [
+      'babel-polyfill',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-actions',
+    ],
+  },
 
   output: {
     path: path.join(__dirname, '../public'),

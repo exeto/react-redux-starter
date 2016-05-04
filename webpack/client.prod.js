@@ -42,6 +42,7 @@ module.exports = merge({
   ],
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/[chunkhash:15].js'),
     new ExtractTextPlugin('static/css/[contenthash:15].css', { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
