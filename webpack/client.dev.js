@@ -1,20 +1,22 @@
 'use strict';
 
-const merge = require('lodash.merge');
+const merge = require('lodash.mergewith');
 const webpack = require('webpack');
-const baseConfig = require('./client.base');
 
-module.exports = merge(baseConfig, {
+const baseConfig = require('./client.base');
+const mergeCustomizer = require('./utils/mergeCustomizer');
+
+module.exports = merge({
   entry: [
     'webpack-hot-middleware/client?reload=true',
-  ].concat(baseConfig.entry),
+  ],
 
   output: {
     filename: 'static/js/bundle.js',
   },
 
   module: {
-    loaders: baseConfig.module.loaders.concat([
+    loaders: [
       {
         test: /\.css$/,
         loaders: [
@@ -23,13 +25,13 @@ module.exports = merge(baseConfig, {
           'postcss',
         ],
       },
-    ]),
+    ],
   },
 
   devtool: 'cheap-module-eval-source-map',
 
-  plugins: baseConfig.plugins.concat([
+  plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-  ]),
-});
+  ],
+}, baseConfig, mergeCustomizer);

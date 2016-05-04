@@ -1,25 +1,27 @@
 'use strict';
 
-const merge = require('lodash.merge');
+const merge = require('lodash.mergewith');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const baseConfig = require('./client.base');
 
-module.exports = merge(baseConfig, {
+const baseConfig = require('./client.base');
+const mergeCustomizer = require('./utils/mergeCustomizer');
+
+module.exports = merge({
   output: {
     filename: 'static/js/[chunkhash:15].js',
   },
 
   module: {
-    loaders: baseConfig.module.loaders.concat([
+    loaders: [
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('css?modules&camelCase!postcss'),
       },
-    ]),
+    ],
   },
 
-  plugins: baseConfig.plugins.concat([
+  plugins: [
     new ExtractTextPlugin('static/css/[contenthash:15].css', { allChunks: true }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -36,5 +38,5 @@ module.exports = merge(baseConfig, {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-  ]),
-});
+  ],
+}, baseConfig, mergeCustomizer);
