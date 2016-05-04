@@ -69,7 +69,7 @@
     "npm-run-all": "^1.8.0",
     "postcss-csso": "^1.1.1",
     "postcss-flexbugs-fixes": "^2.0.0",
-    "postcss-loader": "^0.8.0",
+    "postcss-loader": "^0.9.1",
     "redux-devtools": "^3.0.2",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
