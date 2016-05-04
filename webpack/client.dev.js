@@ -10,7 +10,7 @@ module.exports = merge(baseConfig, {
   ].concat(baseConfig.entry),
 
   output: {
-    filename: 'static/bundle.js',
+    filename: 'static/js/bundle.js',
   },
 
   module: {
