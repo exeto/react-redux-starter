@@ -1,4 +1,7 @@
 {
   "parser": "babel-eslint",
-  "extends": "exeto"
+  "extends": "exeto",
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["__INITIAL_STATE__"] }]
+  }
 }
