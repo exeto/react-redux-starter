@@ -14,7 +14,7 @@ module.exports = merge({
   },
 
   output: {
-    filename: 'static/js/bundle.js',
+    filename: 'static/js/bundle.js?[hash:15]',
     publicPath: 'http://localhost:3000/',
   },
 
@@ -49,7 +49,7 @@ module.exports = merge({
   devtool: 'cheap-module-eval-source-map',
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js?[hash:15]'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ],
