@@ -28,7 +28,7 @@
 .normal li.editing .edit {
   display: block;
   width: 506px;
-  padding: 13px 17px 12px 17px;
+  padding: 13px 17px 12px;
   margin: 0 0 0 43px;
 }
 
@@ -122,7 +122,7 @@
   content: '❯';
   font-size: 22px;
   color: #e6e6e6;
-  padding: 10px 27px 10px 27px;
+  padding: 10px 27px;
 }
 
 .toggleAll:checked::before {
