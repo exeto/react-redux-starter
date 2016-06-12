@@ -14,22 +14,20 @@
     "url": "exeto.me"
   },
   "scripts": {
-    "test": "npm-run-all lint:*",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node tmp/server.bundle.js",
-    "start:dev": "npm run clean && node devServer",
+    "test": "npm run lint:js && npm run lint:scss",
+    "start": "npm run clean && node devServer",
+    "start:prod": "NODE_ENV=production node tmp/server.bundle.js",
     "lint:js": "eslint --ext jsx,js .",
     "lint:js:fix": "npm run lint -- --fix",
     "lint:scss": "stylelint -s scss client/**/*.scss",
     "clean": "rm -rf public tmp",
-    "build": "npm run clean && NODE_ENV=production npm-run-all build:*",
-    "build:client": "webpack --progress --config webpack/client.prod.js",
-    "build:server": "BABEL_ENV=server webpack --progress --config webpack/server.prod.js"
+    "build": "npm run clean && npm run build:client && npm run build:server",
+    "build:client": "NODE_ENV=production webpack --progress --config webpack/client.prod.js",
+    "build:server": "NODE_ENV=production BABEL_ENV=server webpack --progress --config webpack/server.prod.js"
   },
   "dependencies": {
     "ejs": "^2.4.1",
     "express": "^4.13.4",
-    "if-env": "^1.0.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.1.1",
@@ -66,7 +64,6 @@
     "json-loader": "^0.5.4",
     "lodash.mergewith": "^4.3.5",
     "node-sass": "^3.7.0",
-    "npm-run-all": "^1.8.0",
     "postcss-csso": "^1.1.1",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "^0.9.1",

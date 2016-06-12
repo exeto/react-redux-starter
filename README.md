@@ -27,7 +27,7 @@ $ npm start
 
 # Production
 $ npm run build
-$ npm start --production
+$ npm run start:prod
 ```
 
 ## License
