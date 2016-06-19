@@ -2,7 +2,8 @@ import path from 'path';
 import Express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
+import { match, RouterContext, createMemoryHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 
 import configureStore from '../client/store';
@@ -18,14 +19,16 @@ app.set('view engine', 'ejs');
 app.use('/', Express.static(path.resolve(__dirname, '../public')));
 
 app.get('*', (req, res) => {
-  match({ routes, location: req.url }, (err, redirect, props) => {
+  const memoryHistory = createMemoryHistory(req.url);
+  const store = configureStore();
+  const history = syncHistoryWithStore(memoryHistory, store);
+
+  match({ history, routes, location: req.url }, (err, redirect, props) => {
     if (err) {
       res.status(500).send(err.message);
     } else if (redirect) {
       res.redirect(redirect.pathname + redirect.search);
     } else if (props) {
-      const store = configureStore();
-
       const html = renderToString(
         <Provider store={store}>
           <RouterContext {...props} />
