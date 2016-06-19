@@ -15,6 +15,7 @@ const port = process.env.PORT || 3000;
 
 app.set('views', './server');
 app.set('view engine', 'ejs');
+app.set('x-powered-by', false);
 
 app.use('/', Express.static(path.resolve(__dirname, '../public')));
 
