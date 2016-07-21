@@ -7,7 +7,7 @@
 ## Features
 
 - Universal rendering
-- [Transform HMR](https://github.com/gaearon/babel-plugin-react-transform)
+- [React Hot Loader 3](https://github.com/gaearon/react-hot-loader/pull/240)
 - [Redux DevTools](https://github.com/gaearon/redux-devtools)
 - [PostCSS](https://github.com/postcss/postcss) ([Autoprefixer](https://github.com/postcss/autoprefixer))
 - [CSS modules](https://github.com/css-modules/css-modules)
