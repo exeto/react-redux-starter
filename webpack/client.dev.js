@@ -9,6 +9,7 @@ const mergeCustomizer = require('./utils/mergeCustomizer');
 module.exports = merge({
   entry: {
     main: [
+      'react-hot-loader/patch',
       'webpack-hot-middleware/client?reload=true',
     ],
   },

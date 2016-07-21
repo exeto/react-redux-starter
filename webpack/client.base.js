@@ -8,7 +8,9 @@ module.exports = {
   context: path.join(__dirname, '../client'),
 
   entry: {
-    main: './index.js',
+    main: [
+      './index.js',
+    ],
     vendor: [
       'babel-polyfill',
       'react',
