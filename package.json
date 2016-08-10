@@ -1,6 +1,7 @@
 {
   "name": "react-redux-starter",
   "version": "0.1.0",
+  "private": true,
   "description": "React Redux Starter",
   "license": "MIT",
   "repository": "exeto/react-redux-starter",
