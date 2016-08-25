@@ -12,7 +12,7 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "scripts": {
     "test": "npm run lint:js && npm run lint:scss",
-    "start": "npm run clean && BABEL_ENV=client node devServer",
+    "start": "npm run clean && BABEL_ENV=client webpack-dashboard -- node devServer",
     "start:prod": "NODE_ENV=production node tmp/server.bundle.js",
     "lint:js": "eslint --ext jsx,js .",
     "lint:js:fix": "npm run lint -- --fix",
@@ -70,6 +70,7 @@
     "stylelint": "^7.0.2",
     "stylelint-config-standard": "^11.0.0",
     "webpack": "^1.12.12",
+    "webpack-dashboard": "^0.1.8",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4"
   }

@@ -2,6 +2,7 @@
 
 const merge = require('lodash.mergewith');
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const baseConfig = require('./client.base');
 const mergeCustomizer = require('./utils/mergeCustomizer');
@@ -53,5 +54,6 @@ module.exports = merge({
     new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js?[hash:15]'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new DashboardPlugin(),
   ],
 }, baseConfig, mergeCustomizer);
