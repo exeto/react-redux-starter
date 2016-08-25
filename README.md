@@ -8,7 +8,7 @@
 
 - Universal rendering
 - [React Hot Loader 3](https://github.com/gaearon/react-hot-loader/pull/240)
-- [Redux DevTools](https://github.com/gaearon/redux-devtools)
+- [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [PostCSS](https://github.com/postcss/postcss) ([Autoprefixer](https://github.com/postcss/autoprefixer))
 - [CSS modules](https://github.com/css-modules/css-modules)
 
