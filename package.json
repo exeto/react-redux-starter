@@ -31,7 +31,7 @@
     "react-router": "^2.0.0-rc5",
     "react-router-redux": "^4.0.0",
     "redux": "^3.1.2",
-    "redux-actions": "^0.10.0"
+    "redux-actions": "^0.11.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
@@ -48,7 +48,7 @@
     "browser-sync": "^2.11.1",
     "classnames": "^2.2.3",
     "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.24.0",
     "eslint": "^3.2.2",
     "eslint-config-exeto": "^10.0.0",
     "eslint-plugin-import": "^1.12.0",
@@ -62,13 +62,13 @@
     "node-sass": "^3.7.0",
     "postcss-csso": "^1.1.1",
     "postcss-flexbugs-fixes": "^2.0.0",
-    "postcss-loader": "^0.9.1",
+    "postcss-loader": "^0.10.1",
     "react-hot-loader": "^3.0.0-beta.2",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.0",
     "stylelint": "^7.0.2",
-    "stylelint-config-standard": "^11.0.0",
+    "stylelint-config-standard": "^12.0.0",
     "webpack": "^1.12.12",
     "webpack-dashboard": "^0.1.8",
     "webpack-dev-middleware": "^1.5.1",
