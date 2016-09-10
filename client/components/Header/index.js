@@ -6,7 +6,7 @@ import s from './style.scss';
 const Header = () => (
   <h1 className={s.header}>
     <span className={s.logo}><Logo /></span>
-    Hacker News
+    Hacker News <span className={s.top}>Top</span>
   </h1>
 );
 

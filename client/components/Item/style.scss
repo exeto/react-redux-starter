@@ -44,3 +44,13 @@
     display: none;
   }
 }
+
+.comments-link {
+  color: #b2b6b9;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #8c8c8c;
+  }
+}

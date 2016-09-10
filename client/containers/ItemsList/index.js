@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux-apist';
 
-import actionItem from '../../actions/item';
-import actionTopstories from '../../actions/topstories';
+import actionsItem from '../../actions/item';
+import actionsTopstories from '../../actions/topstories';
 import Item from '../../components/Item';
 import Button from '../../components/Button';
 
@@ -14,7 +14,10 @@ class ItemsList extends Component {
   }
 
   componentDidMount() {
-    const { aTopstories } = this.props;
+    const { aTopstories, topstories } = this.props;
+    if (topstories.length) {
+      this.loadItems();
+    }
     aTopstories.fetchAll().then(() => this.loadItems());
   }
 
@@ -56,7 +59,7 @@ export default connect(
     isLoading: state.loading,
   }),
   dispatch => ({
-    aItem: bindActionCreators(actionItem, dispatch),
-    aTopstories: bindActionCreators(actionTopstories, dispatch),
+    aItem: bindActionCreators(actionsItem, dispatch),
+    aTopstories: bindActionCreators(actionsTopstories, dispatch),
   })
 )(ItemsList);
