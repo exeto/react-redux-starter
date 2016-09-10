@@ -25,6 +25,7 @@
   "dependencies": {
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.1.1",
@@ -32,6 +33,9 @@
     "react-router-redux": "^4.0.0",
     "redux": "^3.1.2",
     "redux-actions": "^0.11.0"
+    "redux-apist": "^0.2.0",
+    "redux-thunk": "^2.1.0",
+    "s-ago": "^1.1.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
@@ -46,7 +50,6 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "browser-sync": "^2.11.1",
-    "classnames": "^2.2.3",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.24.0",
     "eslint": "^3.2.2",

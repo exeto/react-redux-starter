@@ -12,6 +12,7 @@ module.exports = {
       './index.js',
     ],
     vendor: [
+      'isomorphic-fetch',
       'babel-polyfill',
       'react',
       'react-dom',
@@ -20,6 +21,8 @@ module.exports = {
       'react-router-redux',
       'redux',
       'redux-actions',
+      'redux-apist',
+      'redux-thunk',
     ],
   },
 
