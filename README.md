@@ -35,7 +35,7 @@ $ npm run start:prod
 
 [MIT](LICENSE.md) © [Timofey Dergachev](http://exeto.me/)
 
-[depstat-url]: https://david-dm.org/exeto/react-redux-starter#info=Dependencies
+[depstat-url]: https://david-dm.org/exeto/react-redux-starter
 [depstat-image]: https://img.shields.io/david/exeto/react-redux-starter.svg?style=flat-square
-[dev-depstat-url]: https://david-dm.org/exeto/react-redux-starter#info=devDependencies
+[dev-depstat-url]: https://david-dm.org/exeto/react-redux-starter?type=dev
 [dev-depstat-image]: https://img.shields.io/david/dev/exeto/react-redux-starter.svg?style=flat-square
