@@ -8,11 +8,6 @@ import Item from '../../components/Item';
 import Button from '../../components/Button';
 
 class ItemsList extends Component {
-  constructor(props) {
-    super(props);
-    this.loadItems = this.loadItems.bind(this);
-  }
-
   componentDidMount() {
     const { aTopstories, topstories } = this.props;
     if (topstories.length) {
@@ -38,7 +33,7 @@ class ItemsList extends Component {
     return (
       <div>
         {items.map(item => <Item key={item.id} item={item} />)}
-        <Button onClick={this.loadItems} isLoading={isLoading}>Load More</Button>
+        <Button handleClick={() => this.loadItems()} isLoading={isLoading}>Load More</Button>
       </div>
     );
   }
