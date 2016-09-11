@@ -1,26 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-import TodoTextInput from '../TodoTextInput';
+import Logo from '../../components/Logo';
+import s from './style.scss';
 
-function handleSave(text, addTodo) {
-  if (text.length) {
-    addTodo(text);
-  }
-}
-
-const Header = ({ addTodo }) => (
-  <header>
-    <h1>Todos</h1>
-    <TodoTextInput
-      newTodo
-      onSave={text => handleSave(text, addTodo)}
-      placeholder="What needs to be done?"
-    />
-  </header>
+const Header = () => (
+  <h1 className={s.header}>
+    <span className={s.logo}><Logo /></span>
+    Hacker News <span className={s.top}>Top</span>
+  </h1>
 );
-
-Header.propTypes = {
-  addTodo: PropTypes.func.isRequired,
-};
 
 export default Header;

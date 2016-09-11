@@ -1,3 +1,5 @@
+import 'isomorphic-fetch';
+
 import path from 'path';
 import Express from 'express';
 import React from 'react';
@@ -8,6 +10,7 @@ import { Provider } from 'react-redux';
 
 import configureStore from '../client/store';
 import routes from '../client/routes';
+import actionsTopstories from '../client/actions/topstories';
 import assets from '../tmp/assets';
 
 const app = new Express();
@@ -30,15 +33,18 @@ app.get('*', (req, res) => {
     } else if (redirect) {
       res.redirect(redirect.pathname + redirect.search);
     } else if (props) {
-      const html = renderToString(
-        <Provider store={store}>
-          <RouterContext {...props} />
-        </Provider>
-      );
+      store.dispatch(actionsTopstories.fetchAll())
+        .then(() => {
+          const html = renderToString(
+            <Provider store={store}>
+              <RouterContext {...props} />
+            </Provider>
+          );
 
-      const initialState = store.getState();
+          const initialState = store.getState();
 
-      res.render('template', { assets, data: { html, initialState } });
+          res.render('template', { assets, data: { html, initialState } });
+        });
     } else {
       res.status(404).send('Not Found');
     }

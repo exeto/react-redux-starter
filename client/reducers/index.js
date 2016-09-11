@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 
-import todos from './todos';
+import items from './item';
+import topstories from './topstories';
+import loading from './loading';
 
 export default combineReducers({
   routing,
-  todos,
+  items,
+  topstories,
+  loading,
 });
