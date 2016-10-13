@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import configureStore from '../client/store';
 import routes from '../client/routes';
 import actionsTopstories from '../client/actions/topstories';
-import assets from '../tmp/assets';
+import assets from '../tmp/assets.json';
 
 const app = new Express();
 const port = process.env.PORT || 3000;

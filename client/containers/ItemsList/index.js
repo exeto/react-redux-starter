@@ -23,7 +23,7 @@ class ItemsList extends Component {
     let limit = nextLoad + 15;
     limit = limit < topstoriesLen ? limit : topstoriesLen;
 
-    for (; nextLoad < limit; nextLoad++) {
+    for (; nextLoad < limit; nextLoad += 1) {
       aItem.fetch(topstories[nextLoad]);
     }
   }
