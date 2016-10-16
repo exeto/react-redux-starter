@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^6.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "image-webpack-loader": "^2.0.0",
+    "image-webpack-loader": "^3.0.0",
     "json-loader": "^0.5.4",
     "lodash.mergewith": "^4.6.0",
     "node-sass": "^3.9.3",
