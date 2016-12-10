@@ -60,7 +60,7 @@
     "image-webpack-loader": "^3.0.0",
     "json-loader": "^0.5.4",
     "lodash.mergewith": "^4.6.0",
-    "node-sass": "^3.9.3",
+    "node-sass": "^4.0.0",
     "postcss-csso": "^1.1.2",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "^1.0.0",
