@@ -63,7 +63,7 @@
     "node-sass": "^4.0.0",
     "postcss-csso": "^1.1.2",
     "postcss-flexbugs-fixes": "^2.0.0",
-    "postcss-loader": "^1.0.0",
+    "postcss-loader": "^1.1.1",
     "react-hot-loader": "^3.0.0-beta.3",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
