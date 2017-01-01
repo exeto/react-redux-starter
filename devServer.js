@@ -1,41 +1,101 @@
 'use strict';
 
-const bs = require('browser-sync').create();
-const express = require('express');
 const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const chalk = require('chalk');
+const clearConsole = require('react-dev-utils/clearConsole');
+const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+const openBrowser = require('react-dev-utils/openBrowser');
 
 const config = require('./webpack/client.dev');
 
-const app = express();
 const compiler = webpack(config);
-const bsConfig = {
-  open: false,
-  notify: false,
-  server: 'public',
-  middleware: [app],
-};
-let launched = false;
+let isFirstCompile = true;
 
-app.set('views', './server');
-app.set('view engine', 'ejs');
-
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
+const devServer = new WebpackDevServer(compiler, {
+  compress: true,
+  clientLogLevel: 'none',
+  contentBase: config.output.path,
+  hot: true,
   publicPath: config.output.publicPath,
-  stats: {
-    colors: true,
+  quiet: true,
+
+  watchOptions: {
+    ignored: /node_modules/,
   },
-}));
 
-app.use(require('webpack-hot-middleware')(compiler));
-
-app.get('*', (req, res) => {
-  res.render('template', { assets: require('./tmp/assets'), data: {} });
+  setup(app) {
+    app.set('views', './server');
+    app.set('view engine', 'ejs');
+  },
 });
 
-compiler.plugin('done', () => {
-  if (!launched) {
-    bs.init(bsConfig);
-    launched = true;
+devServer.use((req, res) => {
+  if (req.method === 'GET') {
+    res.render('template', { assets: require('./tmp/assets'), data: {} });
+  }
+});
+
+devServer.listen(3000, (err) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  clearConsole();
+  console.log(chalk.cyan('Starting the development server...'));
+  console.log();
+
+  openBrowser('http://localhost:3000');
+});
+
+compiler.plugin('invalid', () => {
+  clearConsole();
+  console.log('Compiling...');
+});
+
+compiler.plugin('done', (stats) => {
+  clearConsole();
+
+  const messages = formatWebpackMessages(stats.toJson({}, true));
+  const isSuccessful = !messages.errors.length && !messages.warnings.length;
+  const showInstructions = isSuccessful && isFirstCompile;
+
+  if (isSuccessful) {
+    console.log(chalk.green('Compiled successfully!'));
+  }
+
+  if (showInstructions) {
+    console.log();
+    console.log('The app is running at:');
+    console.log();
+    console.log(`  ${chalk.cyan('http://localhost:3000/')}`);
+    console.log();
+    console.log('Note that the development build is not optimized.');
+    console.log(`To create a production build, use ${chalk.cyan('npm run build')}.`);
+    console.log();
+
+    isFirstCompile = false;
+  }
+
+  if (messages.errors.length) {
+    console.log(chalk.red('Failed to compile.'));
+    console.log();
+
+    messages.errors.forEach((message) => {
+      console.log(message);
+      console.log();
+    });
+
+    return;
+  }
+
+  if (messages.warnings.length) {
+    console.log(chalk.yellow('Compiled with warnings.'));
+    console.log();
+
+    messages.warnings.forEach((message) => {
+      console.log(message);
+      console.log();
+    });
   }
 });

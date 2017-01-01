@@ -31,11 +31,18 @@ module.exports = {
   },
 
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loader: 'eslint',
+        exclude: /node_modules/,
+      },
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
         loader: 'babel',
+        exclude: /node_modules/,
       },
     ],
   },

@@ -11,7 +11,7 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "scripts": {
     "test": "npm run lint:js && npm run lint:scss",
-    "start": "npm run clean && BABEL_ENV=client webpack-dashboard -- node devServer",
+    "start": "npm run clean && BABEL_ENV=client node devServer",
     "start:prod": "NODE_ENV=production node tmp/server.bundle.js",
     "lint:js": "eslint --ext jsx,js .",
     "lint:js:fix": "npm run lint:js -- --fix",
@@ -40,18 +40,18 @@
     "assets-webpack-plugin": "^3.4.0",
     "autoprefixer": "^6.4.1",
     "babel-core": "^6.14.0",
-    "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-polyfill": "^6.13.0",
     "babel-preset-latest": "^6.14.0",
     "babel-preset-latest-node5": "^1.0.0",
     "babel-preset-react": "^6.11.1",
-    "browser-sync": "^2.15.0",
+    "chalk": "^1.1.3",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.26.0",
     "eslint": "^3.5.0",
     "eslint-config-exeto": "^11.0.0",
+    "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^3.0.1",
     "eslint-plugin-react": "^6.7.0",
@@ -64,6 +64,7 @@
     "postcss-csso": "^1.1.2",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "^1.0.0",
+    "react-dev-utils": "^0.4.2",
     "react-hot-loader": "^3.0.0-beta.3",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^4.0.2",
@@ -71,8 +72,6 @@
     "stylelint": "^7.2.0",
     "stylelint-config-standard": "^15.0.1",
     "webpack": "^1.13.2",
-    "webpack-dashboard": "^0.2.0",
-    "webpack-dev-middleware": "^1.7.0",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack-dev-server": "^1.16.2"
   }
 }

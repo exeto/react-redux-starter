@@ -1,3 +1,6 @@
 {
-  "extends": "exeto/node"
+  "extends": "exeto/node",
+  "rules": {
+    "no-console": "off"
+  }
 }

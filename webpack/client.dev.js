@@ -2,7 +2,6 @@
 
 const merge = require('lodash.mergewith');
 const webpack = require('webpack');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const baseConfig = require('./client.base');
 const mergeCustomizer = require('./utils/mergeCustomizer');
@@ -11,7 +10,7 @@ module.exports = merge({
   entry: {
     main: [
       'react-hot-loader/patch',
-      'webpack-hot-middleware/client?reload=true',
+      'react-dev-utils/webpackHotDevClient',
     ],
   },
 
@@ -48,12 +47,11 @@ module.exports = merge({
     require('autoprefixer'),
   ],
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
 
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js?[hash:15]'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new DashboardPlugin(),
   ],
 }, baseConfig, mergeCustomizer);
