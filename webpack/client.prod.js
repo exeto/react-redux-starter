@@ -35,12 +35,6 @@ module.exports = merge({
     ],
   },
 
-  postcss: [
-    require('postcss-flexbugs-fixes'),
-    require('autoprefixer'),
-    require('postcss-csso')({ comments: false }),
-  ],
-
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/[chunkhash:15].js'),
     new ExtractTextPlugin('static/css/[contenthash:15].css', { allChunks: true }),

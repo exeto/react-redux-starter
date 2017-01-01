@@ -42,11 +42,6 @@ module.exports = merge({
     ],
   },
 
-  postcss: [
-    require('postcss-flexbugs-fixes'),
-    require('autoprefixer'),
-  ],
-
   devtool: 'cheap-module-source-map',
 
   plugins: [
