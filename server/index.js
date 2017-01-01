@@ -12,9 +12,9 @@ import configureStore from '../client/store';
 import routes from '../client/routes';
 import actionsTopstories from '../client/actions/topstories';
 import assets from '../tmp/assets.json';
+import config from '../webpack/config';
 
 const app = new Express();
-const port = process.env.PORT || 3000;
 
 app.set('views', './server');
 app.set('view engine', 'ejs');
@@ -51,6 +51,6 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`==> 🌎  Server running at http://localhost:${port}`);
+app.listen(config.port, () => {
+  console.log(`==> 🌎  Server running at ${config.publicPath}`);
 });

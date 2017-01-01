@@ -7,18 +7,19 @@ const clearConsole = require('react-dev-utils/clearConsole');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-const config = require('./webpack/client.dev');
+const webpackConfig = require('./webpack/client.dev');
+const config = require('./webpack/config');
 
-const compiler = webpack(config);
+const compiler = webpack(webpackConfig);
 let isFirstCompile = true;
 
 const devServer = new WebpackDevServer(compiler, {
   compress: true,
   clientLogLevel: 'none',
-  contentBase: config.output.path,
   hot: true,
-  publicPath: config.output.publicPath,
   quiet: true,
+  contentBase: webpackConfig.output.path,
+  publicPath: config.publicPath,
 
   watchOptions: {
     ignored: /node_modules/,
@@ -36,7 +37,7 @@ devServer.use((req, res) => {
   }
 });
 
-devServer.listen(3000, (err) => {
+devServer.listen(config.port, (err) => {
   if (err) {
     return console.log(err);
   }
@@ -45,7 +46,7 @@ devServer.listen(3000, (err) => {
   console.log(chalk.cyan('Starting the development server...'));
   console.log();
 
-  openBrowser('http://localhost:3000');
+  openBrowser(config.publicPath);
 });
 
 compiler.plugin('invalid', () => {
@@ -68,7 +69,7 @@ compiler.plugin('done', (stats) => {
     console.log();
     console.log('The app is running at:');
     console.log();
-    console.log(`  ${chalk.cyan('http://localhost:3000/')}`);
+    console.log(chalk.cyan(`  ${config.publicPath}`));
     console.log();
     console.log('Note that the development build is not optimized.');
     console.log(`To create a production build, use ${chalk.cyan('npm run build')}.`);

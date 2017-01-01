@@ -5,6 +5,7 @@ const webpack = require('webpack');
 
 const baseConfig = require('./client.base');
 const mergeCustomizer = require('./utils/mergeCustomizer');
+const config = require('./config');
 
 module.exports = merge({
   entry: {
@@ -16,7 +17,7 @@ module.exports = merge({
 
   output: {
     filename: 'static/js/bundle.js?[hash:15]',
-    publicPath: 'http://localhost:3000/',
+    publicPath: config.publicPath,
   },
 
   module: {
