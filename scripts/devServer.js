@@ -7,8 +7,8 @@ const clearConsole = require('react-dev-utils/clearConsole');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const openBrowser = require('react-dev-utils/openBrowser');
 
-const webpackConfig = require('./webpack/client.dev');
-const config = require('./webpack/config');
+const webpackConfig = require('../webpack/client.dev');
+const config = require('../webpack/config');
 
 const compiler = webpack(webpackConfig);
 let isFirstCompile = true;
@@ -33,7 +33,7 @@ const devServer = new WebpackDevServer(compiler, {
 
 devServer.use((req, res) => {
   if (req.method === 'GET') {
-    res.render('template', { assets: require('./tmp/assets'), data: {} });
+    res.render('template', { assets: require('../tmp/assets'), data: {} });
   }
 });
 

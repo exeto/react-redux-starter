@@ -11,17 +11,21 @@
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "scripts": {
     "test": "npm run lint:js && npm run lint:scss",
-    "start": "npm run clean && BABEL_ENV=client node devServer",
+    "start": "npm run clean && BABEL_ENV=client node scripts/devServer",
     "start:prod": "NODE_ENV=production node tmp/server.bundle.js",
     "lint:js": "eslint --ext jsx,js .",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:scss": "stylelint -s scss client/**/*.scss",
     "clean": "rm -rf public tmp",
     "build": "npm run clean && npm run build:client && npm run build:server",
-    "build:client": "NODE_ENV=production BABEL_ENV=client webpack --progress --config webpack/client.prod.js",
-    "build:server": "NODE_ENV=production BABEL_ENV=server webpack --progress --config webpack/server.prod.js"
+    "build:client": "NODE_ENV=production BABEL_ENV=client node scripts/build.js webpack/client.prod.js",
+    "build:server": "NODE_ENV=production BABEL_ENV=server node scripts/build.js webpack/server.prod.js"
   },
-  "browserslist": ["> 1%", "last 2 versions", "Firefox ESR"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR"
+  ],
   "dependencies": {
     "ejs": "^2.5.2",
     "express": "^4.14.0",
@@ -57,6 +61,8 @@
     "eslint-plugin-react": "^6.7.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "filesize": "^3.3.0",
+    "gzip-size": "^3.0.0",
     "image-webpack-loader": "^3.0.0",
     "json-loader": "^0.5.4",
     "lodash.mergewith": "^4.6.0",
