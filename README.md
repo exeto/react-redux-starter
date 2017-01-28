@@ -1,5 +1,7 @@
 # react-redux-starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/exeto/react-redux-starter.svg)](https://greenkeeper.io/)
+
 [![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][dev-depstat-image]][dev-depstat-url]
 
 > React Redux Starter
