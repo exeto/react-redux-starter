@@ -59,12 +59,11 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^3.0.1",
     "eslint-plugin-react": "^6.7.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "2.0.0-rc.3",
     "file-loader": "^0.10.0",
     "filesize": "^3.3.0",
     "gzip-size": "^3.0.0",
     "image-webpack-loader": "^3.0.0",
-    "json-loader": "^0.5.4",
     "lodash.mergewith": "^4.6.0",
     "node-sass": "^4.0.0",
     "postcss-csso": "^1.1.2",
@@ -77,7 +76,7 @@
     "style-loader": "^0.13.1",
     "stylelint": "^7.2.0",
     "stylelint-config-standard": "^16.0.0",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "2.3.0"
   }
 }

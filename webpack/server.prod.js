@@ -28,19 +28,27 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        loader: 'css/locals?-minimize&modules&camelCase&context=client!postcss!sass',
+        use: [
+          {
+            loader: 'css-loader/locals',
+            options: {
+              modules: true,
+              camelCase: true,
+              minimize: false,
+              context: 'client',
+            },
+          },
+          { loader: 'postcss-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
     ],
   },
