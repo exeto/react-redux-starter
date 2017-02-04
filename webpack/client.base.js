@@ -13,7 +13,6 @@ module.exports = {
     ],
     vendor: [
       'isomorphic-fetch',
-      'babel-polyfill',
       'react',
       'react-dom',
       'react-redux',
@@ -31,28 +30,28 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint',
+        enforce: 'pre',
         exclude: /node_modules/,
+        loader: 'eslint-loader',
       },
-    ],
-    loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel',
         exclude: /node_modules/,
+        loader: 'babel-loader',
       },
     ],
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx'],
   },
 
   plugins: [
     new CopyWebpackPlugin([{ from: 'to-root' }]),
+
     new AssetsPlugin({
       filename: 'assets.json',
       path: './tmp',

@@ -14,45 +14,69 @@ module.exports = merge({
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'css?-minimize&modules&camelCase!postcss!resolve-url!sass?sourceMap'
-        ),
+        use: ExtractTextPlugin.extract([
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              minimize: false,
+            },
+          },
+          { loader: 'postcss-loader' },
+          { loader: 'resolve-url-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ]),
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        loaders: [
-          'file?name=static/img/[hash:15].[ext]',
-          'image-webpack?{progressive:true,svgo:{plugins:[{removeUselessDefs:false}]}}',
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'static/img/[hash:15].[ext]',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              progressive: true,
+              svgo: {
+                plugins: [{ removeUselessDefs: false }],
+              },
+            },
+          },
         ],
       },
       {
         test: /\.(eot|woff2?|ttf)$/,
-        loader: 'file?name=static/fonts/[hash:15].[ext]',
+        loader: 'file-loader',
+        options: {
+          name: 'static/fonts/[hash:15].[ext]',
+        },
       },
     ],
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/[chunkhash:15].js'),
-    new ExtractTextPlugin('static/css/[contenthash:15].css', { allChunks: true }),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
 
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-      },
-      mangle: {
-        screw_ie8: true,
-      },
-      output: {
-        comments: false,
-        screw_ie8: true,
-      },
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'static/js/[chunkhash:15].js',
+    }),
+
+    new ExtractTextPlugin({
+      filename: 'static/css/[contenthash:15].css',
+      allChunks: true,
     }),
 
     new webpack.DefinePlugin({

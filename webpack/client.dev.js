@@ -21,24 +21,43 @@ module.exports = merge({
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        loaders: [
-          'style',
-          'css?modules&camelCase&sourceMap&localIdentName=[name]---[local]---[hash:base64:5]',
-          'postcss',
-          'resolve-url',
-          'sass?sourceMap',
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              camelCase: true,
+              sourceMap: true,
+              localIdentName: '[name]---[local]---[hash:base64:5]',
+            },
+          },
+          { loader: 'postcss-loader' },
+          { loader: 'resolve-url-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        loader: 'file?name=static/img/[name].[hash:5].[ext]',
+        loader: 'file-loader',
+        options: {
+          name: 'static/img/[name].[hash:5].[ext]',
+        },
       },
       {
         test: /\.(eot|woff2?|ttf)$/,
-        loader: 'file?name=static/fonts/[name].[hash:5].[ext]',
+        loader: 'file-loader',
+        options: {
+          name: 'static/fonts/[name].[hash:5].[ext]',
+        },
       },
     ],
   },
@@ -46,8 +65,12 @@ module.exports = merge({
   devtool: 'cheap-module-source-map',
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'static/js/vendor.bundle.js?[hash:15]'),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'static/js/vendor.bundle.js?[hash:15]',
+    }),
   ],
 }, baseConfig, mergeCustomizer);
