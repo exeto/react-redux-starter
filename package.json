@@ -66,7 +66,7 @@
     "image-webpack-loader": "^3.0.0",
     "lodash.mergewith": "^4.6.0",
     "node-sass": "^4.0.0",
-    "postcss-csso": "^1.1.2",
+    "postcss-csso": "^2.0.0",
     "postcss-flexbugs-fixes": "^2.0.0",
     "postcss-loader": "^1.0.0",
     "react-dev-utils": "^0.5.0",
