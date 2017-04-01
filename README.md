@@ -7,6 +7,7 @@
 ## Features
 
 - Webpack 2
+- React Router 4
 - Universal rendering
 - Example of using [redux-apist](https://github.com/exeto/redux-apist)
 - [React Hot Loader 3](https://github.com/gaearon/react-hot-loader/pull/240)

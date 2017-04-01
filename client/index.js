@@ -1,35 +1,29 @@
 import 'babel-polyfill';
 
 import React from 'react';
-import { render } from 'react-dom';
-import { browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import createHistory from 'history/createBrowserHistory';
 
 import configureStore from './store';
 import Root from './containers/Root';
 
 const initialState = window.__INITIAL_STATE__;
-const store = configureStore(initialState);
-const history = syncHistoryWithStore(browserHistory, store);
+const history = createHistory();
+const store = configureStore(initialState, history);
 const rootElement = document.getElementById('root');
 
-render(
-  <AppContainer>
-    <Root store={store} history={history} />
-  </AppContainer>,
-  rootElement
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component store={store} history={history} />
+    </AppContainer>,
+    rootElement
+  );
+};
+
+render(Root);
 
 if (module.hot) {
-  module.hot.accept('./containers/Root', () => {
-    const NextRoot = require('./containers/Root').default;
-
-    render(
-      <AppContainer>
-        <NextRoot store={store} history={history} />
-      </AppContainer>,
-      rootElement
-    );
-  });
+  module.hot.accept('./containers/Root', () => render(Root));
 }
