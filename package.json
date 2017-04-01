@@ -37,7 +37,7 @@
     "react-router": "^4.0.0",
     "react-router-redux": "5.0.0-alpha.4",
     "redux": "^3.6.0",
-    "redux-actions": "^1.0.0",
+    "redux-actions": "^2.0.1",
     "redux-apist": "^0.2.0",
     "redux-thunk": "^2.1.0",
     "s-ago": "^1.1.0"
@@ -60,7 +60,7 @@
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.7.0",
-    "extract-text-webpack-plugin": "2.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.0",
     "filesize": "^3.3.0",
     "gzip-size": "^3.0.0",
