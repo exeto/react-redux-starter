@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs');
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   context: path.join(__dirname, '../server'),
@@ -14,13 +14,7 @@ module.exports = {
   },
 
   target: 'node',
-
-  externals: fs.readdirSync(path.resolve(__dirname, '../node_modules')).concat([
-    'react-dom/server',
-  ]).reduce((ext, mod) => {
-    ext[mod] = `commonjs ${mod}`;
-    return ext;
-  }, {}),
+  externals: [nodeExternals()],
 
   node: {
     __filename: false,
