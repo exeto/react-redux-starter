@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux-apist';
 
@@ -10,6 +11,7 @@ import Button from '../../components/Button';
 class ItemsList extends Component {
   componentDidMount() {
     const { aTopstories, topstories } = this.props;
+
     if (topstories.length) {
       this.loadItems();
     }
@@ -21,6 +23,7 @@ class ItemsList extends Component {
     const topstoriesLen = topstories.length;
     let nextLoad = items.length;
     let limit = nextLoad + 15;
+
     limit = limit < topstoriesLen ? limit : topstoriesLen;
 
     for (; nextLoad < limit; nextLoad += 1) {
@@ -30,6 +33,7 @@ class ItemsList extends Component {
 
   render() {
     const { items, isLoading } = this.props;
+
     return (
       <div>
         {items.map(item => <Item key={item.id} item={item} />)}
@@ -40,11 +44,11 @@ class ItemsList extends Component {
 }
 
 ItemsList.propTypes = {
-  items: PropTypes.array,
-  topstories: PropTypes.array,
-  aItem: PropTypes.object,
-  aTopstories: PropTypes.object,
-  isLoading: PropTypes.number,
+  items: PropTypes.array.isRequired,
+  topstories: PropTypes.array.isRequired,
+  aItem: PropTypes.object.isRequired,
+  aTopstories: PropTypes.object.isRequired,
+  isLoading: PropTypes.number.isRequired,
 };
 
 export default connect(

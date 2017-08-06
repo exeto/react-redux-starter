@@ -29,6 +29,7 @@ app.use(serve(path.resolve(__dirname, '../public')));
 app.use(async (ctx) => {
   if (ctx.method !== 'GET') {
     ctx.status = 405;
+
     return;
   }
 

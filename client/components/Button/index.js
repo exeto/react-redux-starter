@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Throbber from '../Throbber';
 import s from './style.scss';
@@ -16,9 +17,9 @@ const Button = ({ children, handleClick, isLoading }) => (
 );
 
 Button.propTypes = {
-  children: PropTypes.node,
-  handleClick: PropTypes.func,
-  isLoading: PropTypes.number,
+  children: PropTypes.node.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  isLoading: PropTypes.number.isRequired,
 };
 
 export default Button;

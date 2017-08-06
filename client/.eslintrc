@@ -1,9 +1,6 @@
 {
-  "extends": "exeto",
-  "env": {
-    "browser": true
-  },
-  "rules": {
-    "no-underscore-dangle": ["error", { "allow": ["__INITIAL_STATE__"] }]
-  }
+  "extends": [
+    "@exeto",
+    "@exeto/react"
+  ]
 }

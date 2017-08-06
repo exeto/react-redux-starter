@@ -1,6 +1,3 @@
 {
-  "extends": "exeto/node",
-  "rules": {
-    "no-console": "off"
-  }
+  "extends": "@exeto/eslint-config/node"
 }

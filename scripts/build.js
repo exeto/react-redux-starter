@@ -43,11 +43,12 @@ function printFileSizes(stats) {
   );
 
   assets.forEach((asset) => {
-    let sizeLabel = asset.sizeLabel;
+    let { sizeLabel } = asset;
     const sizeLength = sizeLabel.length;
 
     if (sizeLength < longestSizeLabelLength) {
       const rightPadding = ' '.repeat(longestSizeLabelLength - sizeLength);
+
       sizeLabel += rightPadding;
     }
 

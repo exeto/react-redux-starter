@@ -10,6 +10,7 @@ export default class CustomApist extends Apist {
   buildUrl(id, query) {
     query = query && `?${queryStringify(query)}`;
     const url = urlJoin(this.host, this.namespace, this.resource, id);
+
     return urlJoin(`${url}.json`, query);
   }
 }
