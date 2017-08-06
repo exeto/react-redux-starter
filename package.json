@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "exeto/react-redux-starter",
   "engines": {
-    "node": "^5.0.0"
+    "node": "^7.6.0"
   },
   "author": "Timofey Dergachev <t@exeto.me> (https://exeto.me/)",
   "scripts": {
