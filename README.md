@@ -6,7 +6,7 @@
 
 ## Features
 
-- Webpack 2
+- Webpack 3
 - React Router 4
 - Universal rendering
 - Example of using [redux-apist](https://github.com/exeto/redux-apist)
