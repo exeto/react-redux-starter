@@ -1,19 +1,14 @@
-import 'isomorphic-fetch';
-
 import path from 'path';
 import Koa from 'koa';
 import views from 'koa-ejs';
 import serve from 'koa-static';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router';
-import { Provider } from 'react-redux';
+import { JssProvider, SheetsRegistry } from 'react-jss';
 
-import configureStore from '../client/store';
-import Routes from '../client/Routes';
-import actionsTopstories from '../client/actions/topstories';
-import assets from '../tmp/assets.json';
-import config from '../webpack/config';
+import Root from '@/components/Root';
+import createStore from './createStore';
+import assets from '../build/assets.json';
 
 const app = new Koa();
 
@@ -24,43 +19,38 @@ views(app, {
   cache: false,
 });
 
-app.use(serve(path.resolve(__dirname, '../public')));
+app.use(serve(path.resolve(__dirname, '../client')));
 
-app.use(async (ctx) => {
+app.use(async ctx => {
   if (ctx.method !== 'GET') {
     ctx.status = 405;
 
     return;
   }
 
-  const store = configureStore();
-
-  await store.dispatch(actionsTopstories.fetchAll());
-
-  const routerContext = {};
+  const sheets = new SheetsRegistry();
+  const store = await createStore(ctx);
 
   const html = renderToString(
-    <Provider store={store}>
-      <StaticRouter
-        location={ctx.url}
-        context={routerContext}
-      >
-        <Routes />
-      </StaticRouter>
-    </Provider>
+    <JssProvider registry={sheets}>
+      <Root store={store} />
+    </JssProvider>,
   );
 
-  const initialState = store.getState();
+  const preloadedState = store.getState();
 
-  if (routerContext.url) {
-    ctx.redirect(routerContext.url);
-  } else {
-    ctx.status = routerContext.status || 200;
-    await ctx.render('template', { assets, data: { html, initialState } });
-  }
+  await ctx.render('template', {
+    assets,
+    data: { html, styles: sheets.toString(), preloadedState },
+  });
 });
 
-app.listen(config.port, (err) => {
-  if (err) { return console.log(err); }
-  console.log(`==> 🌎  Server running at ${config.publicPath}`);
+app.listen(3000, err => {
+  if (err) {
+    console.error(err);
+
+    return;
+  }
+
+  console.log('==> 🌎  Server running at http://localhost:3000');
 });

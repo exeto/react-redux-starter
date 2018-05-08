@@ -5,9 +5,16 @@
 ._*
 
 # NODEJS
-node_modules
-npm-debug.log
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+package-lock.json
+
+# IDE
+.idea/
+.vscode/
 
 # OTHER
-public
-tmp
+build/

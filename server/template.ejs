@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Hacker News</title>
+    <title>Document</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%_ if (assets.main.css) { _%>
-    <link rel="stylesheet" href="<%= assets.main.css %>">
+    <%_ if (data.styles) { _%>
+      <style id="server-side-styles">
+        <%- data.styles %>
+      </style>
     <%_ } _%>
   </head>
-  <body class="page">
+  <body>
     <div id="root"><%- data.html || '' %></div>
-    <%_ if (data.initialState) { _%>
+    <%_ if (data.preloadedState) { _%>
     <script>
-      window.__INITIAL_STATE__ = <%- JSON.stringify(data.initialState) %>;
+      window.__PRELOADED_STATE__ = <%- JSON.stringify(data.preloadedState).replace(/</g, '\\u003c') %>;
     </script>
     <%_ } _%>
-    <script src="<%= assets.vendor.js %>"></script>
     <script src="<%= assets.main.js %>"></script>
   </body>
 </html>

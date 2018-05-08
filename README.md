@@ -4,17 +4,6 @@
 
 > React Redux Starter
 
-## Features
-
-- Webpack 3
-- React Router 4
-- Universal rendering
-- Example of using [redux-apist](https://github.com/exeto/redux-apist)
-- [React Hot Loader 3](https://github.com/gaearon/react-hot-loader/pull/240)
-- [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [PostCSS](https://github.com/postcss/postcss) ([Autoprefixer](https://github.com/postcss/autoprefixer))
-- [CSS modules](https://github.com/css-modules/css-modules)
-
 ## Install
 
 ```bash
@@ -26,11 +15,11 @@ $ cd react-redux-starter && npm i
 
 ```bash
 # Development
-$ npm start
+$ npm run dev
 
 # Production
 $ npm run build
-$ npm run start:prod
+$ npm run start
 ```
 
 ## License
