@@ -1,34 +1,4 @@
 {
-  "presets": ["react"],
-  "plugins": [
-    ["transform-runtime", {
-      "polyfill": false,
-      "regenerator": false
-    }]
-  ],
-  "env": {
-    "client": {
-      "presets": [
-        ["env", {
-          "targets": {
-            "browsers": ["> 1%", "last 2 versions", "Firefox ESR"]
-          },
-          "useBuiltIns": true,
-          "modules": false
-        }]
-      ],
-      "plugins": ["react-hot-loader/babel"]
-    },
-    "server": {
-      "presets": [
-        ["env", {
-          "targets": {
-            "node": "current"
-          },
-          "useBuiltIns": true,
-          "modules": false
-        }]
-      ]
-    }
-  }
+  "presets": ["react-app"],
+  "plugins": ["react-hot-loader/babel"]
 }

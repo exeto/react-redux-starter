@@ -1,6 +1,0 @@
-{
-  "extends": [
-    "@exeto",
-    "@exeto/react"
-  ]
-}
