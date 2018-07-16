@@ -4,6 +4,9 @@ const nodeExternals = require('webpack-node-externals');
 
 const paths = require('./paths');
 
+process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production';
+
 module.exports = {
   mode: 'production',
   bail: true,
