@@ -16,7 +16,6 @@ views(app, {
   root: './server',
   layout: false,
   viewExt: 'ejs',
-  cache: false,
 });
 
 app.use(serve(path.resolve(__dirname, '../client')));
