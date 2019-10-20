@@ -4,6 +4,8 @@
 
 > React Redux Starter
 
+**THIS REPOSITORY IS NO LONGER MAINTAINED**
+
 ## Install
 
 ```bash
